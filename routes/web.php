@@ -1,7 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Listing;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +13,36 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Basic stuff
+//Route::get('/hello',function (){
+//   return response( '<h1>Hello World</h1>', 200);
+//});
+//
+//Route::get('/posts/{id}',function ($id){
+//    //dd($id); -> die and dump
+//    //ddd($id); -> die,dump and debug
+//    return response('Post '.$id);
+//})->where('id','[0-9]+');
+//
+////http://127.0.0.1:8000/search?name=Brad&city=Boston
+//Route::get('/search', function (Request $request){
+//    dd($request->name .' '.$request->city);
+//});
 
+
+//All listings
 Route::get('/', function () {
-    return view('welcome');
+    return view('listings', [
+        'heading'=>'Latest Listings',
+        'listings' => Listing::all()
+    ]);
 });
+
+//Single listing
+Route::get('/listings/{id}',function ($id){
+    return view('listing',[
+        'listing'=>Listing::find($id)
+    ]);
+});
+
+
