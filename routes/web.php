@@ -30,6 +30,14 @@ use App\Models\Listing;
 //    dd($request->name .' '.$request->city);
 //});
 
+//Common Resource Routes:
+//index - Show all listings
+//show - Show single listing
+//create - Show for to create new listing
+//store - Store new listing
+//edit - Show for to edit listing
+//update - Update listing
+//destroy - Delete listing
 
 //All listings
 Route::get('/', [ListingController::class, 'index']);
