@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use MongoDB\Driver\Session;
 
 class ListingController extends Controller
 {
@@ -41,7 +42,7 @@ class ListingController extends Controller
 
         Listing::create($formFields);
 
-        return redirect('/');
+        return redirect('/')->with('message','Listing created successfully!');
 
     }
 
