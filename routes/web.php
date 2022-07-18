@@ -42,7 +42,18 @@ use App\Models\Listing;
 //All listings
 Route::get('/', [ListingController::class, 'index']);
 
-//Single listing
+
+//Show Create Job form
+Route::get('/listings/create',[ListingController::class,'create']);
+
+//Store Listing data
+Route::post('/listings',[ListingController::class,'store']);
+
+
+
+
+//Single listing <- this Route has to be on the bottom of the page
 Route::get('/listings/{listing}',[ListingController::class,'show']);
+
 
 
